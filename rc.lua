@@ -112,7 +112,7 @@ awful.layout.layouts = {
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
 
-local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
+local battery_widget = require("widgets.battery-widget.battery")
 -- battery_widget.show_current_level=true
 local mpcWidget = require("widgets.mpd.mpd")
 local net_speed_widget = require("widgets.net-speed-widget.net-speed")
