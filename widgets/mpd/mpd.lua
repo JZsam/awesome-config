@@ -6,7 +6,7 @@ local volume, title, status = "", "", ""
 
 local host = os.getenv("MPD_HOST") or "localhost"
 local port = os.getenv("MPD_PORT") or "6600"
-local function update_widget()
+local function update_widget(volume ,status)
 	local text = title
 	if status == "pause" then
 		text = text .. " ([󰏤] paused) "
@@ -28,8 +28,8 @@ connection = mpc.new(host , port, nil, error_handler,"currentsong", function (_,
 -- connection = mpc.new("localhost", nil, nil, error_handler,"currentsong", function (_, result)
 	title = result.title
 end, "status", function(_, result)
-	volume = result.volume
-	status = result.state
-	pcall(update_widget)
+	local vol = result.volume
+	local stat = result.state
+	pcall(update_widget(vol,stat))
 end)
 return mpcWidget
