@@ -331,6 +331,8 @@ globalkeys = gears.table.join(
 	-- Music
 	awful.key({modkey },"m", function () Spawn(terminal .. " -e ncmpcpp " .. mpdHost) end,
 		{discription = "ncmpcpp", group = "music"}),
+	awful.key({modkey, "Shift" },"m", function () Spawn(terminal .." -e miniplayer") end,
+		{discription = "miniplayer", group = "music"}),
 	awful.key({modkey },"p", function () Spawn("mpc --host=" .. mpdHost .. " toggle") end,
 		{discription = "mpc toggle", group = "music"}),
 	awful.key({modkey },",", function () Spawn("mpc --host=" .. mpdHost .. " prev") end,
